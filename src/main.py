@@ -134,7 +134,7 @@ async def handle_download():
 
     filepath = filedialog.asksaveasfilename(
         title="Save As",
-        initialfile=f"{metadata['title']}.epub",
+        initialfile=f"{ascii_only(metadata['title'])}.epub",
         defaultextension=".epub",
         filetypes=[("EPUB Files", "*.epub"), ("All Files", "*.*")],
     )
@@ -183,13 +183,10 @@ widgets["images_checkbox"] = {
     "anchor": tk.W,
 }
 
-download_icon = tk.PhotoImage(file="./src/download.png")
 widgets["download_button"] = {
     "widget": ttk.Button(
         root,
         text="Download",
-        image=download_icon,
-        compound=tk.LEFT,
         command=button_click,
     ),
     "anchor": tk.N,
