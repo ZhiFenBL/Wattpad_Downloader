@@ -10,7 +10,6 @@ frozenlist==1.7.0
 idna==3.10
 lxml==6.0.0
 multidict==6.6.3
-pathlib==1.0.1
 propcache==0.3.2
 six==1.17.0
 soupsieve==2.7
