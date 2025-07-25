@@ -16,6 +16,11 @@ on:
         required: true
         type: boolean
         default: false
+      noconsole:
+        description: '🙈 Hide the console window (GUI mode)'
+        required: true
+        type: boolean
+        default: true
 
 permissions:
   contents: read
@@ -53,6 +58,11 @@ jobs:
         # Conditionally add --noupx flag
         if ('${{ github.event.inputs.noupx }}' -eq 'true') {
           $CMD += " --noupx"
+        }
+
+        # Conditionally add --windowed flag to hide the console
+        if ('${{ github.event.inputs.noconsole }}' -eq 'true') {
+          $CMD += " --windowed"
         }
 
         # Print and run the final command
